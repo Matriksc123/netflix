@@ -30,4 +30,37 @@ public class Lloguer {
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
+	public double quantitat() {
+		double quantitat = 0;
+        switch (vehicle.getCategoria()) {
+            case Vehicle.BASIC:
+                quantitat += 3;
+                if (dies > 3) {
+                    quantitat += (dies - 3) * 1.5;
+                }
+                break;
+            case Vehicle.GENERAL:
+                quantitat += 4;
+                if (dies > 2) {
+                    quantitat += (dies - 2) * 2.5;
+                }
+                break;
+            case Vehicle.LUXE:
+                quantitat += dies * 6;
+                break;
+        }
+		return quantitat;
+	}
+	public int bonificacions() {
+    	int bonificacions = 0;
+	        // afegeix lloguers freqüents
+	        bonificacions ++;
+	        // afegeix bonificació per dos dies de lloguer de Luxe
+	        if (vehicle.getCategoria() == Vehicle.LUXE &&
+	                dies>1 ) {
+	            bonificacions ++;
+	        }  
+    	return bonificacions;
+    }
+
 }
