@@ -28,10 +28,13 @@ public class Main {
 		miCliente.afegeix(lloguer2);
 		miCliente.afegeix(lloguer3);
 
-		System.out.println(GestorLloguersLite(miCliente));
+		System.out.println(GestorLloguersHTML(miCliente));
 
 	}
 	public static String GestorLloguersLite(Client client) {
         return client.informe();
+	}
+	public static String GestorLloguersHTML(Client client) {
+        return client.informeHTML();
 	}
 }
